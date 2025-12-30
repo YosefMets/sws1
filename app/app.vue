@@ -1,6 +1,8 @@
+<script setup lang="ts">
+const geo = getCountry();
+</script>
+
 <template>
-  <div>qq
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+  {{ geo }}
+  <NuxtPage />
 </template>
