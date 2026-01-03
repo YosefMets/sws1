@@ -81,7 +81,7 @@ const { locale, locales } = useI18n()
   .logo.permanent {
     position: absolute;
     margin-left: 0;
-    top: var(--main-top);
+    top: calc( var(--main-top) / 2 );
     transform: translate(-50%, -50%);
     transform-origin: center top;
   }

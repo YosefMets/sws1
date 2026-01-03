@@ -248,6 +248,7 @@ svg.s {
     grid-template-rows: auto 1fr;
     padding: 0 0 10rem;
   }
+  .cta-wr { margin-top: -6vh; }
   .cta-formula {
     align-self: flex-start;
   }

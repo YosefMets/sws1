@@ -21,13 +21,13 @@
 }
 @media (max-width: 480px) {
   .lg {
-    font-size: 2rem;
+    font-size: 1.6rem;
     transform-origin: 50% 50%;
   }
 }
 @media (max-width: 350px) {
   .lg {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 }
 </style>
