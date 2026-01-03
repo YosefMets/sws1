@@ -8,7 +8,8 @@
   background-color: #c00;
   border-radius: .3em;
   color: #fff;
-  font: 900 normal 3rem/1.2em 'Poppins', sans-serif;
+  /*font: 900 normal 3rem/1.2em 'Poppins', sans-serif;*/
+  font: 900 normal 3rem/1.2em 'Montserrat', sans-serif;
   margin: 0;
   padding: .35em .6em;
   text-transform: uppercase;

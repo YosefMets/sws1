@@ -57,7 +57,7 @@ const toHTMLTags = ( str ) => {
 <!--            </div>-->
           </h1>
 
-          <div class="container cta-features-wr">
+          <div class="cta-features-wr">
             <h4 class="cta-features">
               <span class="cta-feature">{{ $t('freeShipping') }}.</span>
               <span class="cta-feature">{{ $t('cancelAnytime') }}.</span>
@@ -264,9 +264,9 @@ svg.s {
 
   .cta {
     /*text-align: center;*/
-    font-size: 3.6rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    font-size: 3.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   h4 {
@@ -274,6 +274,8 @@ svg.s {
   }
 
   .cta-features {
+    padding-left: 1rem;
+    padding-right: 1rem;
     /*flex-direction: column;*/
   }
 
