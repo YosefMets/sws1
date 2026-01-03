@@ -33,7 +33,7 @@ console.log(formattedPrice.value)
 
 /* Стили для HTML внутри v-html */
 :deep(.currency-symbol) {
-  font-size: 0.8em;
+  /*font-size: 0.8em;*/
   vertical-align: top;
   margin-right: 1px;
 }

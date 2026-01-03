@@ -249,7 +249,7 @@ svg.s {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
-    padding: 0 0 10rem;
+    /*padding: 0 0 10rem;*/
   }
   .cta-wr { margin-top: -4.5rem; }
   .cta-formula {
@@ -269,7 +269,7 @@ svg.s {
 
   .cta {
     /*text-align: center;*/
-    font-size: 3.2rem;
+    font-size: 3rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
