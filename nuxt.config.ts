@@ -1,17 +1,34 @@
-import { i18n } from './configs/i18n'
+import i18n from './configs/i18n'
+// import { i18n } from './configs/i18n'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+
   modules: [
     '@nuxt/image',
     '@nuxthub/core',
     '@nuxtjs/i18n',
+    '@unlok-co/nuxt-stripe',
     '@pinia/nuxt',
-    '@unlok-co/nuxt-stripe'
   ],
-  i18n,
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.json' },
+      { code: 'ru', iso: 'ru-RU', file: 'ru.json' }
+    ],
+    defaultLocale: 'en',
+    strategy: 'prefix',
+    lazy: true,
+    langDir: 'locales',
+    // vueI18n: './configs/i18n.config.ts',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    }
+  },
 
   css: [
     'assets/css/fonts.css',

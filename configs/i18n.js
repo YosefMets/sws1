@@ -1,31 +1,15 @@
-export const i18n = {
-
+export default {
   locales: [
-    {
-      code: 'en',
-      iso: 'en_EN',
-      N: 'English',
-    },
-    {
-      code: 'ru',
-      iso: 'ru-RU',
-      N: 'Русский',
-    },
-    {
-      code: 'he',
-      iso: 'he-HE',
-      N: 'עברית',
-      dir: 'rtl',
-    },
-  ], // used in URL path prefix
-  strategy: 'prefix',
+    { code: 'en', iso: 'en-US', file: 'en.json' },
+    { code: 'ru', iso: 'ru-RU', file: 'ru.json' }
+  ],
   defaultLocale: 'en',
-
+  strategy: 'prefix',
+  lazy: true,
+  langDir: 'locales',
   vueI18n: './configs/i18n.config.ts',
-
   detectBrowserLanguage: {
     useCookie: true,
-    // alwaysRedirect: true,
     cookieKey: 'i18n_redirected',
     redirectOn: 'root',
   }

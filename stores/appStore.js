@@ -44,7 +44,7 @@ export const useAppStore = defineStore('app', () => {
   });
 
   const country = computed( () => countries.value?.[countryIso.value]);
-  const currency = computed( () => currencies.value?.[currencyIso.value]);
+  const currency = computed( () => config.value?.currency  );
 
   return {
     config,
