@@ -164,7 +164,7 @@ a:hover {
 .field.w70 { grid-column: span 14; }
 
 section {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;

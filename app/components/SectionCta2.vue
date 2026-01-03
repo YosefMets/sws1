@@ -242,6 +242,9 @@ svg.s {
   width: 2rem;
 }
 @media (max-width: 480px) {
+  .right {
+    margin-top: 6.8rem;
+  }
   .s-cta {
     display: grid;
     grid-template-columns: 1fr;
@@ -259,7 +262,8 @@ svg.s {
 
   .left,
   section:before {
-    height: var(--main-top);
+    /*height: var(--main-top);*/
+    height: 0;
     width: 100%;
   }
 
