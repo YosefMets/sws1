@@ -161,7 +161,7 @@ const stopIt = computed( () => Array(20).fill( t('stopIt') ).join(' • ') );
 
 @media (max-width: 480px) {
   .formula {
-    margin-top: 1.5rem;
+    /*margin-top: 1.5rem;*/
   }
   .formula-wr {
     justify-content: center;

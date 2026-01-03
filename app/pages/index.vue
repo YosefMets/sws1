@@ -19,7 +19,7 @@ const { locale, locales } = useI18n()
       <Logo />
     </div>
 
-    <SectionCta2 />
+    <SectionCta3 />
 
     <MoBottom />
 
@@ -81,8 +81,10 @@ const { locale, locales } = useI18n()
   .logo.permanent {
     position: absolute;
     margin-left: 0;
-    top: calc( var(--main-top) / 2 );
-    transform: translate(-50%, -50%);
+    /*top: calc( var(--main-top) / 2 );*/
+    top: 0;
+    /*transform: translate(-50%, -50%);*/
+    transform: translate(-50%, 0);
     transform-origin: center top;
   }
 

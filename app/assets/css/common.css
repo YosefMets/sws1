@@ -1,14 +1,9 @@
 :root {
   --base-font: 400 normal 12px/1.5em 'Montserrat', sans-serif;
   --scroll-width: 0;
-  /*--bg: #FFC700;*/
-  /*--bg: #fc0;*/
-  --bg: #ffd300;
-  /*--bg: #c6a472;*/
+  --bg: #ffcc00;
 
   --fog: #00000099;
-  /*--bg: #FDDC01;*/
-  /*--bg: #ffdc00;*/
   --br: .4rem;
   --container-width: 950px;
   --main-top: 13vh;
