@@ -18,7 +18,13 @@ const stopIt = computed( () => Array(20).fill( t('stopIt') ).join(' • ') );
       </div>
       +
       <div class="wm">
-        <NuxtImg provider="cloudinary" src="washing-machine-mini.avif" alt="" :lazy="true" />
+        <NuxtImg provider="cloudinary"
+                 src="washing-machine-mini.avif"
+                 alt=""
+                 width="60"
+                 height="82"
+                 sizes="sm:30px md:60px lg:90px"
+                 :modifiers="{ crop: 'fill' }" />
 <!--        <SvgWashingMachine class="washing-machine" />-->
 <!--        <div class="emoji">🤯</div>&lt;!&ndash;🤔😡🤬🤯&ndash;&gt;-->
       </div>
