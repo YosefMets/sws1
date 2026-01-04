@@ -13,6 +13,11 @@ export default defineNuxtConfig({
     '@unlok-co/nuxt-stripe',
     '@pinia/nuxt',
   ],
+  image: {
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/deucrhprn/image/upload/'
+    }
+  },
   i18n: {
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.json' },

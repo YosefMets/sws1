@@ -18,9 +18,9 @@ const stopIt = computed( () => Array(20).fill( t('stopIt') ).join(' • ') );
       </div>
       +
       <div class="wm">
-        <img src="/i/washing-machine.avif" alt="" />
-        <SvgWashingMachine class="washing-machine" />
-        <div class="emoji">🤯</div><!--🤔😡🤬🤯-->
+        <NuxtImg provider="cloudinary" src="washing-machine-mini.avif" alt="" :lazy="true" />
+<!--        <SvgWashingMachine class="washing-machine" />-->
+<!--        <div class="emoji">🤯</div>&lt;!&ndash;🤔😡🤬🤯&ndash;&gt;-->
       </div>
       =
       <div class="socks-out">
@@ -157,7 +157,7 @@ const stopIt = computed( () => Array(20).fill( t('stopIt') ).join(' • ') );
   translate: 0 -50%;
 }
 .stripe1:nth-child(1) { bottom: 10px; rotate: -4deg; z-index: 10; opacity: .9; }
-.stripe1:nth-child(2) { top: 60%; rotate: 3deg; z-index: 1; opacity: .6; }
+.stripe1:nth-child(2) { top: 55%; rotate: 3deg; z-index: 1; opacity: .6; translate: -30px 0; }
 
 @media (max-width: 480px) {
   .formula {

@@ -2,6 +2,7 @@
 import {useAppStore} from "../../stores/appStore.js";
 import MoBottom from "../components/MoBottom.vue";
 import SectionPleasure from "../components/SectionPleasure.vue";
+import SectionQuality from "../components/SectionQuality.vue";
 
 const { config, scrollY } = storeToRefs( useAppStore() );
 const { price: $, oldPrice: old$ } = config.value;
@@ -21,10 +22,11 @@ const { locale, locales } = useI18n()
 
     <SectionCta3 />
 
-    <MoBottom />
-
     <SectionPleasure />
 
+    <SectionQuality />
+
+    <MoBottom />
   </div>
 </template>
 
