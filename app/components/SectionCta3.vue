@@ -29,7 +29,9 @@ const toHTMLTags = ( str ) => {
 
     <aside class="left">
       <div class="cover">
-        <img src="/i/laundry.avif" alt="" loading="lazy" />
+        <NuxtImg provider="cloudinary"
+                 src="sws-laundry"
+                 alt="" />
       </div>
     </aside>
 

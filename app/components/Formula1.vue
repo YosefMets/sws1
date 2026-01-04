@@ -19,7 +19,7 @@ const stopIt = computed( () => Array(20).fill( t('stopIt') ).join(' • ') );
       +
       <div class="wm">
         <NuxtImg provider="cloudinary"
-                 src="washing-machine-mini"
+                 src="sws-washing-machine-mini"
                  alt=""
                  width="60"
                  height="85"
