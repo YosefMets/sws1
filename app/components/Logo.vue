@@ -21,7 +21,7 @@
 }
 @media (max-width: 480px) {
   .lg {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     transform-origin: 50% 50%;
   }
 }

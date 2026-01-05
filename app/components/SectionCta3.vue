@@ -61,8 +61,9 @@ const toHTMLTags = ( str ) => {
 
           <div class="cta-features-wr">
             <h4 class="cta-features">
-              <span class="cta-feature">{{ $t('freeShipping') }}.</span>
-              <span class="cta-feature">{{ $t('cancelAnytime') }}.</span>
+              <span class="cta-feature">{{ $t('freeShipping') }}</span>
+              &bull;
+              <span class="cta-feature">{{ $t('cancelAnytime') }}</span>
             </h4>
             <ul class="cta-actions">
               <li><NButton class="go">{{ $t('tryNow') }}</NButton></li>
@@ -203,7 +204,7 @@ const toHTMLTags = ( str ) => {
 
 .cta-features {
   display: flex;
-  gap: .5em;
+  gap: .4em;
   font-weight: 600;
   margin-top: 2rem;
 }
@@ -245,7 +246,7 @@ svg.s {
 }
 @media (max-width: 480px) {
   .right {
-    margin-top: 6.8rem;
+    margin-top: 5.8rem;
   }
   .s-cta {
     display: grid;
@@ -271,7 +272,7 @@ svg.s {
 
   .cta {
     /*text-align: center;*/
-    font-size: 3rem;
+    font-size: 2.8rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }

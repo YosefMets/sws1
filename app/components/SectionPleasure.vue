@@ -12,7 +12,10 @@
     </aside>
 
     <div class="ill-wr">
-      <img src="/i/pleasure.avif" alt="" class="ill" />
+      <NuxtImg provider="cloudinary"
+               src="sws-pleasure"
+               class="ill" />
+<!--      <img src="/i/pleasure.avif" alt="" class="ill" />-->
     </div>
 
   </section>
@@ -20,6 +23,7 @@
 
 <style scoped>
 section {
+  height: 100vh;
 }
 section:after {
   content: '';
