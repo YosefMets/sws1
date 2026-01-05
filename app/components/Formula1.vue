@@ -23,8 +23,8 @@ const stopIt = computed( () => Array(20).fill( t('stopIt') ).join(' • ') );
                  alt=""
                  width="60"
                  height="85"
-                 sizes="sm:30px md:60px lg:90px"
-                 :modifiers="{ crop: 'fill' }" />
+                 sizes="sm:60px md:90px lg:120px"
+                 :modifiers="{ c: 'fill' }" />
 <!--        <SvgWashingMachine class="washing-machine" />-->
 <!--        <div class="emoji">🤯</div>&lt;!&ndash;🤔😡🤬🤯&ndash;&gt;-->
       </div>

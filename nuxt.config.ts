@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@unlok-co/nuxt-stripe',
     '@pinia/nuxt',
+    '@nuxtjs/google-fonts'
   ],
   image: {
     cloudinary: {
@@ -36,7 +37,7 @@ export default defineNuxtConfig({
   },
 
   css: [
-    'assets/css/fonts.css',
+    'assets/css/font.css',
     'assets/css/common.css',
   ],
 
@@ -57,6 +58,19 @@ export default defineNuxtConfig({
     blob: true,
     cache: true,
   },
+
+  // Оптимизация шрифтов
+  nitro: {
+    compressPublicAssets: {
+      brotli: true,
+      gzip: true
+    }
+  },
+
+  // Для Vite хеширования
+  vite: {
+    assetsInclude: ['**/*.woff2']
+  }
   /*
   nitro: {
     experimental: {
