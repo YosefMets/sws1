@@ -1,10 +1,13 @@
 <script setup>
 import {useAppStore} from "../../stores/appStore.js";
 import SvgSock from "./imgs/svg-sock.vue";
+import NButton from "./controls/NButton.vue";
 
 const { t } = useI18n();
 const { config, countryIso } = storeToRefs( useAppStore() );
 const { price: $, oldPrice: old$ } = config.value;
+
+const { isMobile } = useDevice()
 
 // console.log( config.value )
 
@@ -29,7 +32,8 @@ const toHTMLTags = ( str ) => {
 
     <aside class="left">
       <div class="cover">
-        <NuxtImg provider="cloudinary"
+        <NuxtImg v-if="!isMobile"
+                 provider="cloudinary"
                  src="sws-laundry"
                  alt="" />
       </div>

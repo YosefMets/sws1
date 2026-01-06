@@ -3,9 +3,9 @@ import NButton from "~/components/controls/NButton.vue";
 </script>
 
 <template>
-  <div class="mo-bottom-container">
+<!--  <div class="mo-bottom-container">-->
     <NButton class="mo-bottom">{{ $t('tryNow') }}</NButton>
-  </div>
+<!--  </div>-->
 </template>
 
 <style scoped>
@@ -19,7 +19,7 @@ import NButton from "~/components/controls/NButton.vue";
     bottom: 0;
   }
   .mo-bottom {
-    /*position: fixed;*/
+    position: fixed;
     left: 50%;
     bottom: 2rem;
     transform: translateX(-50%);

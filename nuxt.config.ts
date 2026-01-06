@@ -12,7 +12,8 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@unlok-co/nuxt-stripe',
     '@pinia/nuxt',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/device'
   ],
   image: {
     cloudinary: {

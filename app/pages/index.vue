@@ -24,7 +24,9 @@ const { locale, locales } = useI18n()
 
     <SectionPleasure />
 
-    <SectionQuality />
+    <SectionForm />
+
+<!--    <SectionQuality />-->
 
     <MoBottom />
   </div>
