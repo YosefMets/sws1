@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     '@unlok-co/nuxt-stripe',
     '@pinia/nuxt',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/device'
+    '@nuxtjs/device',
   ],
   image: {
     cloudinary: {

@@ -14,7 +14,8 @@
     <div class="ill-wr">
       <NuxtImg provider="cloudinary"
                src="sws-pleasure"
-               class="ill" />
+               class="ill"
+               alt="" />
 <!--      <img src="/i/pleasure.avif" alt="" class="ill" />-->
     </div>
 
