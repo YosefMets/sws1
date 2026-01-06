@@ -64,11 +64,11 @@ const toHTMLTags = ( str ) => {
           </h1>
 
           <div class="cta-features-wr">
-            <h4 class="cta-features">
+            <div class="cta-features">
               <span class="cta-feature">{{ $t('freeShipping') }}</span>
               &bull;
               <span class="cta-feature">{{ $t('cancelAnytime') }}</span>
-            </h4>
+            </div>
             <ul class="cta-actions">
               <li><NButton class="go">{{ $t('tryNow') }}</NButton></li>
               <li><NButton :style="'style1'">{{ $t('learnMore') }}</NButton></li>

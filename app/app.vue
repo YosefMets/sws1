@@ -1,5 +1,9 @@
 <script setup>
+const { locale } = useI18n()
 useHead({
+  htmlAttrs: {
+    lang: locale.value
+  },
   title: 'Stop Washing Socks',
   meta: [
     { name: 'description', content: 'Get 31 pairs of socks for $59.99 and forget about washing' },
