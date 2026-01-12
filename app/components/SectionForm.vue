@@ -72,7 +72,14 @@ const checkout = async () => {
     <aside class="right">
       <div class="container">
         <div>
-          <h2>{{ $t('formTitle') }}</h2>
+          <h2>
+            {{ $t('formTitle') }}
+            <div class="cta-features">
+              <span class="cta-feature">{{ $t('freeShipping') }}</span>
+              &bull;
+              <span class="cta-feature">{{ $t('cancelAnytime') }}</span>
+            </div>
+          </h2>
 
           {{user}}
 
@@ -95,10 +102,6 @@ const checkout = async () => {
                       autocomplete="email"
                       type="email"
                       :placeholder="$t('email')" />
-            </div>
-
-            <h4>{{ $t('deliveryAddress') }}</h4>
-            <div class="fields">
               <NInput v-model="shipping.address"
                       class="field"
                       autocomplete="shipping address-line1"
@@ -113,15 +116,19 @@ const checkout = async () => {
                       :placeholder="$t('zip')" />
               <NInput1 v-model="shipping.state"
                        class="field w60"
-                       :editable="!config.states"
                        :autocomplete="!!config.states ? 'off' : 'shipping address-level1'"
                        :placeholder="$t('state')"
-                       :options="config.states" />
+                       :options="config.states"
+                       :editable="!config.states" />
               <NInput v-model="shipping.city"
                       class="field"
                       autocomplete="shipping address-level2"
                       :placeholder="$t('city')" />
             </div>
+
+<!--            <h4>{{ $t('deliveryAddress') }}</h4>-->
+<!--            <div class="fields">-->
+<!--            </div>-->
 
 <!--            <div class="fields">-->
 <!--              <NCheck v-model="user.news" class="field">{{ $t('newsAgreed') }}</NCheck>-->
@@ -209,6 +216,14 @@ h2 {
 }
 h4 {
   margin-bottom: 1rem;
+}
+.cta-features {
+  display: flex;
+  gap: .4em;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: .5rem;
+  line-height: 1em;
 }
 
 .fields {

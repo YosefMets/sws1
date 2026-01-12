@@ -101,7 +101,9 @@ onBeforeUnmount( () => {
     </label>
 
     <i v-if="internalOptions?.length" class="nin-v" role="button" @click="expandOptions = !expandOptions">
-      ⬇️
+      <svg class="nin-v-ic" viewBox="0 0 20 12" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="2,2 10,10 18,2"/>
+      </svg>
     </i>
 
     <Transition name="nin-expand">
@@ -135,8 +137,8 @@ onBeforeUnmount( () => {
 :active, :hover, :focus { outline: 0; outline-offset: 0; }
 
 .nin {
-  --cntl-h: 60px;
-  --br: 10px;
+  /*--cntl-h: 60px;*/
+  /*--br: 10px;*/
 
   position: relative;
   display: grid;
@@ -246,6 +248,16 @@ onBeforeUnmount( () => {
 .nin-v-ic {
   width: 1rem;
   height: .6rem;
+  display: inline-block;
+  stroke: #000;
+  stroke-width: .1rem;
+}
+.nin-v-ic > polyline {
+  fill: transparent;
+  stroke: inherit;
+  stroke-width: inherit;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
 }
 .nin-ress-wr {
   position: absolute;
@@ -330,7 +342,7 @@ onBeforeUnmount( () => {
     border-radius: calc( var(--br) * 2 ) calc( var(--br) * 2 ) 0 0;
   }
   .nin-res-f-wr {
-    padding: .8em .5em;
+    padding: .6em 2rem;
   }
   .nin-res-f {
     font-size: 1.6rem;
@@ -343,6 +355,8 @@ onBeforeUnmount( () => {
   }
   .nin-res {
     font-size: 1.6rem;
+    /*font-weight: 600;*/
+    padding: .6em 2rem;
   }
   .nin-bd {
     /*display: block;*/
