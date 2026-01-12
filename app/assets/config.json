@@ -1,7 +1,7 @@
   {
   "us": {
     "price": 59.99,
-    "oldPrice": 50,
+    "oldPrice": 80,
     "currency": "usd",
     "states": [
       "Alabama",
@@ -63,9 +63,4 @@
       { "name": "city", "required": true, "autocomplete": "address-level2" }
     ]
   },
-  "at": {
-    "price": 29.99,
-    "oldPrice": 40,
-    "currency": "eur"
-  }
 }

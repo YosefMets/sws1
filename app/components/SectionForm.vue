@@ -113,19 +113,19 @@ const checkout = async () => {
                       :placeholder="$t('zip')" />
               <NInput1 v-model="shipping.state"
                        class="field w60"
-                       :editable="false"
-                      :autocomplete="!!config.states ? 'off' : 'shipping address-level1'"
-                      :placeholder="$t('state')"
-                      :options="config.states" />
+                       :editable="!config.states"
+                       :autocomplete="!!config.states ? 'off' : 'shipping address-level1'"
+                       :placeholder="$t('state')"
+                       :options="config.states" />
               <NInput v-model="shipping.city"
                       class="field"
                       autocomplete="shipping address-level2"
                       :placeholder="$t('city')" />
             </div>
 
-            <div class="fields">
-              <NCheck v-model="user.news" class="field">{{ $t('newsAgreed') }}</NCheck>
-            </div>
+<!--            <div class="fields">-->
+<!--              <NCheck v-model="user.news" class="field">{{ $t('newsAgreed') }}</NCheck>-->
+<!--            </div>-->
             <div class="fields">
               <NCheck v-model="agreed" class="field" required>{{ $t('agreed') }}
                 <NuxtLink :to="'terms'" target="_blank">{{ $t('terms') }}</NuxtLink>,
@@ -157,11 +157,11 @@ const checkout = async () => {
       </div>
 
       <div class="container copy">
-        <NLink :to="'terms'" target="_blank">{{ $t('terms') }}</NLink>
+        <NuxtLink :to="'terms'" target="_blank">{{ $t('terms') }}</NuxtLink>
         &bull;
-        <NLink :to="'privacy'" target="_blank">{{ $t('privacy') }}</NLink>
+        <NuxtLink :to="'privacy'" target="_blank">{{ $t('privacy') }}</NuxtLink>
         &bull;
-        <NLink :to="'refund'" target="_blank">{{ $t('refund') }}</NLink>
+        <NuxtLink :to="'refund'" target="_blank">{{ $t('refund') }}</NuxtLink>
         <br />
         &copy; Stop Washing Socks. All rights reserved.
       </div>

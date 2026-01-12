@@ -42,6 +42,12 @@ export default defineNuxtConfig({
     'assets/css/common.css',
   ],
 
+  plugins: [
+    // '~/plugins/router-patch',
+    '~/plugins/directives.js'
+
+  ],
+
   runtimeConfig: {
     stripe: {
       key: process.env.STRIPE_SECRET_KEY,

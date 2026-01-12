@@ -13,7 +13,6 @@ const { currency } = storeToRefs( useAppStore() );
 
 const plainPrice = computed( () => formatPlain( props.amount, currency.value ))
 const formattedPrice = computed( () => formatWithSuperscript( props.amount, currency.value ))
-console.log(formattedPrice.value)
 </script>
 
 <template>

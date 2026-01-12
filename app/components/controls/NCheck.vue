@@ -1,8 +1,8 @@
 <script setup>
 import SvgCheck from "~/components/imgs/svg-check.vue";
 
-const prop = defineProps({
-  modelValue: String,
+const props = defineProps({
+  modelValue: [String, Boolean],
   disabled: Boolean,
 });
 

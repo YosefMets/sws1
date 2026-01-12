@@ -18,8 +18,8 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     });
     countryIso.value = getCountry()
     const { default: configs } = await import('~/assets/config.json');
-    config.value = configs[countryIso.value];
-    console.log( 'Map.Global:', config.value.currency )
+    config.value = configs[countryIso.value] || configs['us'];
+    console.log( 'Map.Global:', config.value )
 
   }
   return true;
