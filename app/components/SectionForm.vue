@@ -3,6 +3,7 @@ import NInput from "~/components/controls/NInput.vue";
 import NCheck from "~/components/controls/NCheck.vue";
 import NButton from "~/components/controls/NButton.vue";
 import {useAppStore} from "../../stores/appStore.js";
+import NInput1 from "./controls/NInput1.vue";
 // import NLink from "~/components/controls/NLink.vue";
 
 const { config, currencyIso, user } = storeToRefs( useAppStore() );
@@ -110,12 +111,11 @@ const checkout = async () => {
                       class="field w40"
                       autocomplete="shipping postal-code"
                       :placeholder="$t('zip')" />
-              <NInput v-model="shipping.state"
+              <NInput1 v-model="shipping.state"
                       class="field w60"
                       :autocomplete="!!config.states ? 'off' : 'shipping address-level1'"
                       :placeholder="$t('state')"
-                      :options="config.states"
-                      :select="!!config.states" />
+                      :options="config.states" />
               <NInput v-model="shipping.city"
                       class="field"
                       autocomplete="shipping address-level2"
