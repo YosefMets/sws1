@@ -37,7 +37,8 @@ const cssClasses = computed( () => ({
 const closeOptions = () => {}
 
 const go = async ( e, val = internalValue.value ) => {
-  await emit( 'update:modelValue', val );
+  const value = internalOptions.value.find( ({ text }) => text === val )?.value || val;
+  await emit( 'update:modelValue', value );
   internalValue.value = val;
   expandOptions.value = false;
   e.target.blur();
@@ -93,6 +94,13 @@ onBeforeUnmount( () => {
             :readonly="!editable"
             @change="go"
             @focus="openModal"
+            v-bind:type="$attrs.type"
+            v-bind:name="$attrs.name"
+            v-bind:autocomplete="$attrs.autocomplete"
+            v-bind:required="$attrs.required"
+            v-bind:id="$attrs.inputId"
+            v-bind:min="$attrs.min"
+            v-bind:max="$attrs.max"
         />
         <i class="nin-plh" role="presentation">
           <i>{{ placeholder }}</i>
@@ -232,6 +240,7 @@ onBeforeUnmount( () => {
 .nin-in:not(:placeholder-shown) + .nin-plh > i,
 .nin-in.nin-in-fill + .nin-plh > i {
   transform: scale(.8) translateY(-1.2em);
+  opacity: .7;
 }
 .nin-in:focus + .nin-plh > i:after,
 .nin-in:not(:placeholder-shown) + .nin-plh > i:after,

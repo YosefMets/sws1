@@ -81,49 +81,49 @@ const checkout = async () => {
             </div>
           </h2>
 
-          {{user}}
+<!--          <div>{{user}}</div>-->
 
           <form @submit.prevent="gotoPayment">
             <div class="fields">
               <Sizes class="field" />
-              <NInput v-model="user.fname"
-                      class="field w50"
-                      required
-                      autocomplete="given-name"
-                      :placeholder="$t('firstName')" />
-              <NInput v-model="user.lname"
-                      class="field w50"
-                      required
-                      autocomplete="family-name"
-                      :placeholder="$t('lastName')" />
-              <NInput v-model="user.email"
-                      class="field"
-                      required
-                      autocomplete="email"
-                      type="email"
-                      :placeholder="$t('email')" />
-              <NInput v-model="shipping.address"
-                      class="field"
-                      autocomplete="shipping address-line1"
-                      :placeholder="$t('address')" />
-              <NInput v-model="shipping.address2"
-                      class="field"
-                      autocomplete="shipping address-line2"
-                      :placeholder="$t('address2') + ' (' + $t('option') + ')'" />
-              <NInput v-model="shipping.zip"
-                      class="field w40"
-                      autocomplete="shipping postal-code"
-                      :placeholder="$t('zip')" />
+              <NInput1 v-model="user.fname"
+                       class="field w50"
+                       required
+                       autocomplete="given-name"
+                       :placeholder="$t('firstName')" />
+              <NInput1 v-model="user.lname"
+                       class="field w50"
+                       required
+                       autocomplete="family-name"
+                       :placeholder="$t('lastName')" />
+              <NInput1 v-model="user.email"
+                       class="field"
+                       required
+                       autocomplete="email"
+                       type="email"
+                       :placeholder="$t('email')" />
+              <NInput1 v-model="shipping.address"
+                       class="field"
+                       autocomplete="shipping address-line1"
+                       :placeholder="$t('address')" />
+              <NInput1 v-model="shipping.address2"
+                       class="field"
+                       autocomplete="shipping address-line2"
+                       :placeholder="$t('address2') + ' (' + $t('option') + ')'" />
+              <NInput1 v-model="shipping.zip"
+                       class="field w40"
+                       autocomplete="shipping postal-code"
+                       :placeholder="$t('zip')" />
               <NInput1 v-model="shipping.state"
                        class="field w60"
                        :autocomplete="!!config.states ? 'off' : 'shipping address-level1'"
                        :placeholder="$t('state')"
                        :options="config.states"
                        :editable="!config.states" />
-              <NInput v-model="shipping.city"
-                      class="field"
-                      autocomplete="shipping address-level2"
-                      :placeholder="$t('city')" />
+              <NInput1 v-model="shipping.city"
+                       class="field"
+                       autocomplete="shipping address-level2"
+                       :placeholder="$t('city')" />
             </div>
 
 <!--            <h4>{{ $t('deliveryAddress') }}</h4>-->

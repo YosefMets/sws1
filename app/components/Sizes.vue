@@ -1,6 +1,6 @@
 <script setup>
-import NInput from "~/components/controls/NInput.vue";
 import {useAppStore} from "../../stores/appStore.js";
+import NInput1 from "./controls/NInput1.vue";
 
 const { sizes, countryIso } = storeToRefs( useAppStore() );
 
@@ -15,11 +15,11 @@ const regionCode = computed( () => {
 
 <template>
 
-  <NInput v-model="size"
-          required
-          :placeholder="$t('size')"
-          :options="sizes.map( size => size[regionCode] )"
-          :select="true" />
+  <NInput1 v-model="size"
+           required
+           :placeholder="$t('size')"
+           :options="sizes.map( size => size[regionCode] )"
+           :editable="false" />
 
 </template>
 
