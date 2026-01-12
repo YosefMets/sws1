@@ -188,7 +188,7 @@ onBeforeUnmount( () => {
   /*font-size: 1.1rem;*/
   /*font-weight: 400;*/
   padding: 1.2em 0 0;
-  font-size: 1.2rem;
+  font-size: 14px;
   font-weight: 600;
 }
 .nin-sv {
@@ -231,7 +231,7 @@ onBeforeUnmount( () => {
   font-style: normal;
   display: block;
   transform-origin: 0 50%;
-  font-size: 1.1rem;
+  font-size: 13px;
   font-weight: 500;
   transition: transform linear .1s;
   white-space: nowrap;
@@ -240,7 +240,7 @@ onBeforeUnmount( () => {
 .nin-in:not(:placeholder-shown) + .nin-plh > i,
 .nin-in.nin-in-fill + .nin-plh > i {
   transform: scale(.8) translateY(-1.2em);
-  opacity: .7;
+  color: #0009;
 }
 .nin-in:focus + .nin-plh > i:after,
 .nin-in:not(:placeholder-shown) + .nin-plh > i:after,
