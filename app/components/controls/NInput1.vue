@@ -327,8 +327,6 @@ onBeforeUnmount( () => {
     background-color: transparent;
     z-index: 2000;
     width: 100vw;
-    height: 100dvh;
-    overflow-y: auto;
     border-radius: calc( var(--br) * 2 ) calc( var(--br) * 2 ) 0 0;
   }
   .nin-res-f-wr {

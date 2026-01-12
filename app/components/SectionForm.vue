@@ -112,7 +112,8 @@ const checkout = async () => {
                       autocomplete="shipping postal-code"
                       :placeholder="$t('zip')" />
               <NInput1 v-model="shipping.state"
-                      class="field w60"
+                       class="field w60"
+                       :editable="false"
                       :autocomplete="!!config.states ? 'off' : 'shipping address-level1'"
                       :placeholder="$t('state')"
                       :options="config.states" />
