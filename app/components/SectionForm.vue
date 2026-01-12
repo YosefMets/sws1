@@ -124,6 +124,9 @@ const checkout = async () => {
                        class="field"
                        autocomplete="shipping address-level2"
                        :placeholder="$t('city')" />
+              <div class="field stripe-container">
+                <Stripe />
+              </div>
             </div>
 
 <!--            <h4>{{ $t('deliveryAddress') }}</h4>-->
@@ -228,6 +231,15 @@ h4 {
 
 .fields {
   margin-bottom: 2rem;
+}
+
+.stripe-container {
+  background-color: #fff;
+  height: var(--cntl-h);
+  border-radius: var(--br);
+  display: grid;
+  align-items: center;
+  padding: 0 .5em;
 }
 
 a {
