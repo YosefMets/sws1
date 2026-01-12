@@ -188,7 +188,7 @@ onBeforeUnmount( () => {
   /*font-size: 1.1rem;*/
   /*font-weight: 400;*/
   padding: 1.2em 0 0;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 .nin-sv {

@@ -14,7 +14,7 @@ const options = {
     base: {
       color: '#32325d',
       fontFamily: '"Montserrat", Helvetica, sans-serif',
-      fontSize: '13px',
+      fontSize: '16px',
       fontWeight: '600',
       '::placeholder': {
         color: '#000'
@@ -110,4 +110,10 @@ onBeforeUnmount( () => {
   translate: 0 1000%;
 }
 .stripe-container.focus > div { translate: 0 0; }
+</style>
+
+<style>
+.StripeElement iframe {
+  font-family: Montserrat, sans-serif !important;
+}
 </style>
