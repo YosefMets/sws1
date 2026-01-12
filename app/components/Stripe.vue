@@ -8,6 +8,7 @@ const cardElement = ref(null);
 const cardDomElement = ref(null);
 
 onMounted( async () => {
+  if (!process.client) return
   stripe.value = await loadStripe(config.public.stripe.key);
   const elements = stripe.value.elements()
   cardElement.value = elements.create('card')
@@ -17,7 +18,7 @@ onMounted( async () => {
 })
 
 onBeforeUnmount( () => {
-  cardElement.destroy()
+  cardElement.value.destroy()
 })
 //
 // defineExpose({
@@ -27,5 +28,5 @@ onBeforeUnmount( () => {
 </script>
 
 <template>
-  <div class="stripe-wr" ref="cardDomElement" qwe="qwe" />
+  <div class="stripe-wr" ref="cardDomElement" />
 </template>
