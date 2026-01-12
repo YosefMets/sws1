@@ -221,7 +221,7 @@ onBeforeUnmount( () => {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  color: #000000cc;
+  color: #000c;
   z-index: 20;
   transition: opacity .1s;
   cursor: text;
@@ -232,7 +232,7 @@ onBeforeUnmount( () => {
   display: block;
   transform-origin: 0 50%;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   transition: transform linear .1s;
   white-space: nowrap;
 }
