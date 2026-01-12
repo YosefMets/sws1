@@ -4,15 +4,16 @@ import { useRuntimeConfig, useClientStripe } from "#imports";
 const { loadStripe } = useClientStripe();
 const config = useRuntimeConfig()
 const stripe = ref(null);
+const cardElement = ref(null);
 const cardDomElement = ref(null);
 
 onMounted( async () => {
   stripe.value = await loadStripe(config.public.stripe.key);
   const elements = stripe.value.elements()
-  const cardElement = elements.create('card')
+  cardElement.value = elements.create('card')
 
   console.log( cardElement );
-  cardElement.mount( cardDomElement.value )
+  cardElement.value.mount( cardDomElement.value )
 })
 
 onBeforeUnmount( () => {
