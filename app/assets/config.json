@@ -62,5 +62,5 @@
       { "name": "state", "autocomplete": "address-level1", "width": 50 },
       { "name": "city", "required": true, "autocomplete": "address-level2" }
     ]
-  },
+  }
 }

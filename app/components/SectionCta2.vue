@@ -6,8 +6,6 @@ const { t } = useI18n();
 const { config, countryIso } = storeToRefs( useAppStore() );
 const { price: $, oldPrice: old$ } = config.value;
 
-// console.log( config.value )
-
 const ctaStart = computed( () => t('ctaStart')
     .replace(/\+br\+/g, '<br>')
     .replace('+b+', '<b>')

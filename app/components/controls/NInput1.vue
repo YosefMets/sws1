@@ -53,7 +53,7 @@ const scrollToFirstMatchedOption = () => {
 const openModal = () => {
   expandOptions.value = true
   history.pushState({ optionsOpen: true }, '')
-  console.log(history.state) // { optionsOpen: true }
+  // console.log(history.state) // { optionsOpen: true }
 }
 
 const closeModal = () => {

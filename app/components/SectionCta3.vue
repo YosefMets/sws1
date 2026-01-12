@@ -9,8 +9,6 @@ const { price: $, oldPrice: old$ } = config.value;
 
 const { isMobile } = useDevice()
 
-// console.log( config.value )
-
 const ctaStart = computed( () => t('ctaStart')
     .replace(/\+br\+/g, '<br>')
     .replace('+b+', '<b>')
