@@ -17,7 +17,7 @@ const options = {
       fontSize: '16px',
       fontWeight: '600',
       '::placeholder': {
-        color: '#000'
+        color: '#0006'
       },
       iconColor: '#000'
     },
@@ -43,9 +43,7 @@ onMounted( async () => {
   const elements = stripe.value.elements({
     locale: locale.value,
     fonts: [
-      {
-        cssSrc: 'https://fonts.googleapis.com/css?family=Montserrat:400,600'
-      }
+      { cssSrc: 'https://fonts.googleapis.com/css?family=Montserrat:400,600' }
     ]
   });
   cardElement.value = elements.create( 'card', options )
@@ -62,7 +60,7 @@ onMounted( async () => {
     hadInput = false
   });
   cardElement.value.on( 'change', ( event ) => {
-    hadInput = !event.empty
+    hadInput = !event.empty;
     // if ( event.empty ) isFocused.value = false;
     // console.log( event.complete )
   })
@@ -79,7 +77,7 @@ onBeforeUnmount( () => {
 </script>
 
 <template>
-  <div :class="['stripe-container', { focus: isFocused }]" @click="focus">
+  <div :class="['stripe-container', { focus: isFocused }]">
     <i class="stripe-label">
       <i>
         {{ $t('creditDebitCard') }} ({{ $t('poweredBy') }}
@@ -93,7 +91,7 @@ onBeforeUnmount( () => {
           </g></svg>
         )
       </i></i>
-    <label />
+    <label @click="focus" />
     <div ref="cardDomElement" />
   </div>
 </template>
@@ -152,8 +150,9 @@ onBeforeUnmount( () => {
   top: 0;
   bottom: 0;
   /*background-color: #635bff11;*/
-  z-index: 10;
+  z-index: 30;
 }
+.stripe-container.focus > label { pointer-events: none; }
 .stripe-container > div {
   width: 100%;
   opacity: 0;
@@ -162,7 +161,7 @@ onBeforeUnmount( () => {
 </style>
 
 <style>
-.StripeElement iframe {
-  font-family: Montserrat, sans-serif !important;
-}
+/*.StripeElement iframe {*/
+/*  font-family: Montserrat, sans-serif !important;*/
+/*}*/
 </style>
