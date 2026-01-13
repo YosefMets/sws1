@@ -9,6 +9,7 @@ const props = defineProps({
   options: { type: Array, default: () => [] },
   editable: { type: Boolean, default: true },
   clearable: Boolean,
+  search: Boolean,
   // autoSelectFirst: { type: Boolean, default: false },
 })
 const emit = defineEmits(['update:modelValue']);
@@ -40,7 +41,7 @@ const go = async ( e, val = internalValue.value ) => {
   const value = internalOptions.value.find( ({ text }) => text === val )?.value || val;
   await emit( 'update:modelValue', value );
   internalValue.value = val;
-  expandOptions.value = false;
+  closeModal();
   e.target.blur();
 }
 
@@ -53,13 +54,15 @@ const scrollToFirstMatchedOption = () => {
 
 const openModal = () => {
   expandOptions.value = true
-  history.pushState({ optionsOpen: true }, '')
+  history.pushState({ optionsOpen: true }, '');
+  document.body.style.overflow = 'hidden'
   // console.log(history.state) // { optionsOpen: true }
 }
 
 const closeModal = () => {
   expandOptions.value = false
   history.back()
+  document.body.style.overflow = ''
 }
 
 const handleBack = ( event ) => {
@@ -108,7 +111,7 @@ onBeforeUnmount( () => {
       </div>
     </label>
 
-    <i v-if="internalOptions?.length" class="nin-v" role="button" @click="expandOptions = !expandOptions">
+    <i v-if="internalOptions?.length" class="nin-v" role="button" @click="expandOptions ? closeModal : openModal">
       <svg class="nin-v-ic" viewBox="0 0 20 12" xmlns="http://www.w3.org/2000/svg">
         <polyline points="2,2 10,10 18,2"/>
       </svg>
@@ -116,7 +119,7 @@ onBeforeUnmount( () => {
 
     <Transition name="nin-expand">
       <div v-if="isOptionsOpen" class="nin-ress-wr" role="listbox">
-        <div v-if="!editable && internalOptions?.length > 4" class="nin-res-f-wr">
+        <div v-if="search && !editable && internalOptions?.length > 4" class="nin-res-f-wr">
           <input v-model="searchValue" class="nin-res-f" placeholder="Quick search..." @input="scrollToFirstMatchedOption" />
         </div>
         <ul class="nin-ress">
@@ -135,7 +138,7 @@ onBeforeUnmount( () => {
     </Transition>
 
     <Transition name="nin-bd">
-      <div v-if="isOptionsOpen" class="nin-bd" @click="expandOptions = false" />
+      <div v-if="isOptionsOpen" class="nin-bd" @click="closeModal" />
     </Transition>
   </div>
 </template>
@@ -281,7 +284,7 @@ onBeforeUnmount( () => {
   padding: 0;
   width: 100%;
   /*transform-origin: top;*/
-  max-height: 11em;
+  max-height: 16em;
   overflow-y: hidden;
   border-radius: 0 0 var(--br) var(--br);
   border-top-color: #ccc;
