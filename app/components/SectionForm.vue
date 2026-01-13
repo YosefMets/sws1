@@ -213,7 +213,8 @@ const checkout = async () => {
 }
 
 h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  font-size: 32px;
 }
 h4 {
   margin-bottom: 1rem;
@@ -221,7 +222,8 @@ h4 {
 .cta-features {
   display: flex;
   gap: .4em;
-  font-size: 1.4rem;
+  /*font-size: 1.4rem;*/
+  font-size: 16px;
   font-weight: 600;
   margin-top: .5rem;
   line-height: 2em;
