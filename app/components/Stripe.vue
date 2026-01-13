@@ -40,7 +40,14 @@ const focus = () => {
 onMounted( async () => {
   if (!process.client) return
   stripe.value = await loadStripe( config.public.stripe.key );
-  const elements = stripe.value.elements({ locale: locale.value });
+  const elements = stripe.value.elements({
+    locale: locale.value,
+    fonts: [
+      {
+        cssSrc: 'https://fonts.googleapis.com/css?family=Montserrat:400,600'
+      }
+    ]
+  });
   cardElement.value = elements.create( 'card', options )
 
   console.log( cardElement );
