@@ -364,6 +364,7 @@ onBeforeUnmount( () => {
     max-height: none;
     height: 100%;
     overflow-y: auto;
+    padding: 16px 0;
   }
   .nin-res {
     font-size: 1.6rem;
