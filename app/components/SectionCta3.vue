@@ -67,14 +67,14 @@ const toHTMLTags = ( str ) => {
               &bull;
               <span class="cta-feature">{{ $t('cancelAnytime') }}</span>
             </div>
-            <ul class="cta-actions">
-              <li><NButton class="go">{{ $t('tryNow') }}</NButton></li>
-              <li><NButton :style="'style1'">{{ $t('learnMore') }}</NButton></li>
-            </ul>
           </div>
 
         </div>
 
+        <div class="cta-actions">
+          <NButton class="go">{{ $t('tryNow') }}</NButton>
+          <!--              <li><NButton :style="'style1'">{{ $t('learnMore') }}</NButton></li>-->
+        </div>
 
       </div>
     </aside>
@@ -226,9 +226,15 @@ const toHTMLTags = ( str ) => {
   list-style: none;
   margin: 3rem 0 0;
   padding: 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: dense;
+  grid-auto-columns: 1fr;
   justify-content: flex-start;
+  align-self: flex-start;
   grid-gap: 1rem;
+  width: calc(var(--container-width) / 2);
+  padding: 0 2rem 2rem 4rem;
 }
 /*.actions > li {*/
 /*  margin-right: 1rem;*/
@@ -290,7 +296,11 @@ svg.s {
     /*flex-direction: column;*/
   }
 
-  .cta-actions { display: none; }
+  .cta-actions {
+    width: 100%;
+    padding: 0 3rem;
+    align-self: center;
+  }
 }
 
 @media (max-width: 350px) {

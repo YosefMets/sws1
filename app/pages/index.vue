@@ -28,7 +28,7 @@ const { locale, locales } = useI18n()
 
 <!--    <SectionQuality />-->
 
-    <MoBottom />
+<!--    <MoBottom />-->
   </div>
 </template>
 
