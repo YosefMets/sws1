@@ -176,6 +176,8 @@ section > aside {
   /*width: 100%;*/
   /*width: calc( var(--container-width) / 2 );*/
 }
+aside:first-of-type { align-items: flex-end; }
+aside:last-of-type  { }
 .container {
   width: calc( var(--container-width) / 2 );
   padding: 0 2rem;

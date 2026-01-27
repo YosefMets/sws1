@@ -60,8 +60,8 @@ const openModal = () => {
 }
 
 const closeModal = () => {
+  if ( expandOptions.value ) history.back()
   expandOptions.value = false
-  history.back()
   document.body.style.overflow = ''
 }
 

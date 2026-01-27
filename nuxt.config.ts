@@ -6,6 +6,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+      ]
+    }
+  },
+
   modules: [
     '@nuxt/image',
     '@nuxthub/core',
@@ -60,7 +68,7 @@ export default defineNuxtConfig({
   },
 
   hub: {
-    database: true,
+    db: 'postgresql',
     kv: true,
     blob: true,
     cache: true,

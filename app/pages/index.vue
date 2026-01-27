@@ -21,9 +21,8 @@ const { locale, locales } = useI18n()
     </div>
 
     <SectionCta3 />
-
     <SectionPleasure />
-
+    <SectionExplanation />
     <SectionForm />
 
 <!--    <SectionQuality />-->

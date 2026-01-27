@@ -13,6 +13,8 @@ const { price: $ } = config.value;
 const agreed = ref(true);
 const openPayment = ref(false);
 const stripe = ref(null);
+const stripeRef = ref(null);
+const size = ref(null);
 
 const gotoPayment = async () => {
   openPayment.value = true;
@@ -24,6 +26,41 @@ const gotoPayment = async () => {
 }
 
 const checkout = async () => {
+  const { stripe, cardElement } = stripeRef.value;
+  const { paymentMethod, error } = await stripe.createPaymentMethod({
+    type: 'card',
+    card: cardElement
+  });
+  if (error) {
+    console.error('Card error:', error)
+    return
+  }
+
+  const data = {
+    email: user.value.email,
+    firstName: user.value.fname,
+    lastName: user.value.lname,
+    address: {
+      address: shipping.address,
+      address2: shipping.address2,
+      zip: shipping.zip,
+      state: shipping.state,
+      city: shipping.city,
+    },
+    paymentMethodId: paymentMethod.id,
+    priceId: size.value.priceId,
+    size: size.value.name
+  }
+
+  const stripeRes = await $fetch('/api/subscribe', {
+    method: 'POST',
+    body: data
+  })
+  console.log( stripeRes );
+
+  return
+
+  /*
   const sss = await stripe.value.getToken();
   const { token, error } = sss;
 
@@ -56,6 +93,7 @@ const checkout = async () => {
   });
 
   console.log(data);
+  */
 }
 </script>
 
@@ -81,11 +119,11 @@ const checkout = async () => {
             </div>
           </h2>
 
-<!--          <div>{{user}}</div>-->
+          <div>{{size}}</div>
 
-          <form @submit.prevent="gotoPayment">
+          <form @submit.prevent="checkout">
             <div class="fields">
-              <Sizes class="field" />
+              <Sizes v-model="size" class="field" />
               <NInput1 v-model="user.fname"
                        class="field w50"
                        required
@@ -118,13 +156,13 @@ const checkout = async () => {
                        class="field w60"
                        :autocomplete="!!config.states ? 'off' : 'shipping address-level1'"
                        :placeholder="$t('state')"
-                       :options="config.states"
+                       :options="config.states?.map( value => ({ value, text: $t('states.'+value) })) || null"
                        :editable="!config.states" />
               <NInput1 v-model="shipping.city"
                        class="field"
                        autocomplete="shipping address-level2"
                        :placeholder="$t('city')" />
-              <Stripe class="field" />
+              <Stripe class="field" ref="stripeRef" />
             </div>
 
 <!--            <h4>{{ $t('deliveryAddress') }}</h4>-->

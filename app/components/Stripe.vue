@@ -70,10 +70,10 @@ onBeforeUnmount( () => {
   cardElement.value.destroy()
 })
 
-// defineExpose({
-//   stripe,
-//   cardElement
-// })
+defineExpose({
+  stripe,
+  cardElement
+})
 </script>
 
 <template>
@@ -132,15 +132,17 @@ onBeforeUnmount( () => {
   width: 32px;
   display: inline-block;
   position: relative;
-  top: 2px;
+  top: 0.2em;
 }
 .focus > .stripe-label > i {
   transform: scale(.8) translateY(-1.2em);
   color: #0009;
+  fill: #0009;
 }
 .focus > .stripe-label > i:after {
   content: ':';
 }
+.focus .stripe-logo { top: .15em; }
 
 .stripe-container > label {
   position: absolute;

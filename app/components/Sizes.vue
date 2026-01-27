@@ -2,6 +2,9 @@
 import {useAppStore} from "../../stores/appStore.js";
 import NInput1 from "./controls/NInput1.vue";
 
+const props = defineProps(['modelValue'])
+const emit = defineEmits(['update:modelValue'])
+
 const { sizes, countryIso } = storeToRefs( useAppStore() );
 
 const size = ref(null);
@@ -10,7 +13,9 @@ const regionCode = computed( () => {
   if (countryIso.value.toLowerCase() === 'us') return 'us'
   if (countryIso.value.toLowerCase() === 'uk') return 'uk'
   return 'eu'
-} )
+})
+
+watch( size, (n) => { emit('update:modelValue', sizes.value.find( ({ name }) => name === size.value )) })
 </script>
 
 <template>
@@ -18,7 +23,7 @@ const regionCode = computed( () => {
   <NInput1 v-model="size"
            required
            :placeholder="$t('size')"
-           :options="sizes.map( size => size[regionCode] )"
+           :options="sizes.map( size => ({ text: size[regionCode], value: size.name }) )"
            :editable="false" />
 
 </template>
