@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     .where(gt(schema.customers.tokenExpires, new Date()))
     .then(res => res[0])
 
-  console.log('Customer found:', customer?.email)
+  console.log('Customer found:', customer)
 
   if (!customer) {
     throw createError({ statusCode: 401, message: 'Invalid or expired token' })
@@ -26,7 +26,9 @@ export default defineEventHandler(async (event) => {
   console.log('Subscription found:', subscription?.status)
 
   return {
-    userEmail: customer.email,
+    email: customer.email,
+    firstName: customer.firstName,
+    lastName: customer.lastName,
     status: subscription.status,
     currentPeriodEnd: subscription.currentPeriodEnd,
     size: subscription.size

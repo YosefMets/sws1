@@ -119,11 +119,12 @@ const checkout = async () => {
             </div>
           </h2>
 
-          <div>{{size}}</div>
+<!--          <div>{{size}}</div>-->
 
           <form @submit.prevent="checkout">
             <div class="fields">
-              <Sizes v-model="size" class="field" />
+              <Sizes1 v-model="size" class="field" />
+<!--              <Sizes v-model="size" class="field" />-->
               <NInput1 v-model="user.fname"
                        class="field w50"
                        required

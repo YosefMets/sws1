@@ -9,7 +9,7 @@ const subscription = ref(null)
 const canceling = ref(false)
 
 // 1. Проверить токен и получить данные подписки
-onMounted(async () => {
+const getData = async () => {
   const token = route.query.token
   console.log( token );
   if (!token) {
@@ -27,7 +27,9 @@ onMounted(async () => {
   } finally {
     loading.value = false
   }
-})
+}
+
+getData()
 
 // 2. Форматирование даты
 const formatDate = (date) => {
@@ -60,11 +62,11 @@ const cancelSubscription = async () => {
 
 <template>
 
-  <section>
+  <section v-if="!loading && !error">
 
     <aside class="left">
       <div class="container">
-        <h2>{{ $t('hi') }} first_name, {{ $t('thanks4YourChose') }}</h2>
+        <h2>{{ $t('hi') }} {{ subscription.firstName }}, {{ $t('thanks4YourChose') }}</h2>
         <div class="widget-list">
           <div class="widget-list-header">
             <h3 class="widget-list-title">{{ $t('shippingAddress') }}</h3>
@@ -93,7 +95,8 @@ const cancelSubscription = async () => {
   <div v-if="loading">Loading...</div>
   <div v-else-if="error">{{ error }}</div>
   <div v-else>
-    <h2>Subscription for {{ subscription.userEmail }}</h2>
+    <h2>Subscription for {{ subscription.firstName }}</h2>
+    <p>Email: {{ subscription.email }}</p>
     <p>Status: {{ subscription.status }}</p>
     <p v-if="subscription.currentPeriodEnd">
       Next payment: {{ formatDate(subscription.currentPeriodEnd) }}

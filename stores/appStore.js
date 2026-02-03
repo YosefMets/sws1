@@ -15,9 +15,9 @@ export const useAppStore = defineStore('app', () => {
   const scrollY = ref(0);
 
   const sizes = ref([
-    { name: 'm', eu: '41-42', us: '8-9', uk: '7-8', priceId: 'price_1Sc4OIHyfA30IheYhxuHB3d1' },
-    { name: 'l', eu: '43-44', us: '9½-10½', uk: '8½-9½', priceId: 'price_1StQimHyfA30IheYO9gmxOuc' },
-    { name: 'xl', eu: '45-46', us: '11-12', uk: '10-11', priceId: 'price_1Sc4OIHyfA30IheYhxuHB3d1' },
+    { name: 'm', eu: '41-42', us: '6-8',  us1: '8-9', uk: '7-8', priceId: 'price_1Sc4OIHyfA30IheYhxuHB3d1' },
+    { name: 'l', eu: '43-44', us: '8-12',  us1: '9½-10½', uk: '8½-9½', priceId: 'price_1StQimHyfA30IheYO9gmxOuc' },
+    { name: 'xl', eu: '45-46', us: '12-16',  us1: '11-12', uk: '10-11', priceId: 'price_1Sc4OIHyfA30IheYhxuHB3d1' },
   ]);
 
   const user = ref({
