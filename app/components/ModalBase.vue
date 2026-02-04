@@ -27,6 +27,10 @@ const borderRadius = computed( () => {
 
 const close = () => {
   if ( !props.easyClose ) return
+
+  if (isAndroid.value && props.show) {
+    window.history.back() // Удаляем состояние из истории
+  }
   emit('close');
 }
 
@@ -45,7 +49,7 @@ watch(() => props.open, (isOpen) => {
 // Обработка кнопки "Назад" только на Android
 const handleBack = (event) => {
   if (event.state?.modalOpen || event.type === 'backbutton') {
-    emit('close')
+    close()
   }
 }
 
