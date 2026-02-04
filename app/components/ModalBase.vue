@@ -30,29 +30,42 @@ const close = () => {
   emit('close');
 }
 
-watch(() => props.show, (isOpen) => {
-  if (isOpen) {
+const { isAndroid } = useDevice()
+
+// Блокировка скролла
+watch(() => props.open, (isOpen) => {
+  if (isAndroid && isOpen) {
     document.body.style.overflow = 'hidden'
     window.history.pushState({ modalOpen: true }, '')
-  } else {
+  } else if (!isOpen) {
     document.body.style.overflow = ''
   }
 })
 
-// Обработка кнопки "Назад"
-const handlePopState = (event) => {
-  if (event.state?.modalOpen) {
+// Обработка кнопки "Назад" только на Android
+const handleBack = (event) => {
+  if (event.state?.modalOpen || event.type === 'backbutton') {
     emit('close')
   }
 }
 
 onMounted(() => {
-  window.addEventListener('popstate', handlePopState)
+  if (isAndroid) {
+    window.addEventListener('popstate', handleBack)
+    if (window.cordova || window.Capacitor) {
+      document.addEventListener('backbutton', handleBack, false)
+    }
+  }
 })
 
 onBeforeUnmount(() => {
   document.body.style.overflow = ''
-  window.removeEventListener('popstate', handlePopState)
+  if (isAndroid) {
+    window.removeEventListener('popstate', handleBack)
+    if (window.cordova || window.Capacitor) {
+      document.removeEventListener('backbutton', handleBack, false)
+    }
+  }
 })
 </script>
 
