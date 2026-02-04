@@ -16,6 +16,8 @@ const stripe = ref(null);
 const stripeRef = ref(null);
 const size = ref(null);
 
+const law = ref(null);
+
 const gotoPayment = async () => {
   openPayment.value = true;
 
@@ -204,17 +206,28 @@ const checkout = async () => {
       </div>
 
       <div class="container copy">
-        <NuxtLink :to="'terms'" target="_blank">{{ $t('terms') }}</NuxtLink>
+        <NuxtLink :to="'terms'" target="_blank">
+          <span @click.stop.prevent="law = 'terms'">{{ $t('terms') }}</span>
+        </NuxtLink>
         &bull;
-        <NuxtLink :to="'privacy'" target="_blank">{{ $t('privacy') }}</NuxtLink>
+        <NuxtLink :to="'privacy'" target="_blank">
+          <span @click.stop.prevent="law = 'privacy'">{{ $t('privacy') }}</span>
+        </NuxtLink>
         &bull;
-        <NuxtLink :to="'refund'" target="_blank">{{ $t('refund') }}</NuxtLink>
+        <NuxtLink :to="'refund'" target="_blank">
+          <span @click.stop.prevent="law = 'refund'">{{ $t('refund') }}</span>
+        </NuxtLink>
         <br />
         &copy; Stop Washing Socks. All rights reserved.
       </div>
 
     </aside>
   </section>
+
+  <Modal :show="!!law" :height="'full'" @close="law = null">
+    <Law :is="law" />
+  </Modal>
+
 </template>
 
 <style scoped>
