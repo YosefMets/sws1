@@ -37,35 +37,34 @@ const close = () => {
 const { isAndroid } = useDevice()
 
 // Блокировка скролла
-watch(() => props.open, (isOpen) => {
-  if (isAndroid && isOpen) {
+watch(() => props.show, (isOpen) => {
+  if (isAndroid.value && isOpen) {
     document.body.style.overflow = 'hidden'
-    window.history.pushState({ modalOpen: true }, '')
-  } else if (!isOpen) {
+    // НЕ делаем pushState
+  } else {
     document.body.style.overflow = ''
   }
 })
 
-// Обработка кнопки "Назад" только на Android
-const handleBack = (event) => {
-  if (event.state?.modalOpen || event.type === 'backbutton') {
-    close()
+const handlePopState = (event) => {
+  if (props.show) {
+    event.preventDefault() // Предотвращаем навигацию
+    emit('close')
   }
 }
 
 onMounted(() => {
-  if (isAndroid) {
-    window.addEventListener('popstate', handleBack)
-    if (window.cordova || window.Capacitor) {
-      document.addEventListener('backbutton', handleBack, false)
-    }
+  if (isAndroid.value) {
+    window.addEventListener('popstate', handlePopState)
+    // Запрещаем навигацию при открытом модале
+    window.history.pushState(null, '', window.location.href)
   }
 })
 
 onBeforeUnmount(() => {
   document.body.style.overflow = ''
-  if (isAndroid) {
-    window.removeEventListener('popstate', handleBack)
+  if (isAndroid.value) {
+    window.removeEventListener('popstate', handlePopState)
     if (window.cordova || window.Capacitor) {
       document.removeEventListener('backbutton', handleBack, false)
     }
