@@ -224,8 +224,14 @@ const checkout = async () => {
     </aside>
   </section>
 
-  <Modal :show="!!law" :height="'full'" @close="law = null">
+  <Modal :show="!!law" :height="'full'" :x="false" @close="law = null">
+    <template #header>
+      <h1>{{ $t(law === 'terms' ? 'terms-conditions' : law === 'privacy' ? 'privacy-policy' : 'refund-policy') }}</h1>
+    </template>
     <Law :is="law" />
+    <template #footer>
+      <NButton class="law-close" @click="law = null">{{ $t('ok') }}</NButton>
+    </template>
   </Modal>
 
 </template>
@@ -293,6 +299,10 @@ a {
 
 .copy {
   margin: 2rem 0;
+}
+
+.law-close {
+  width: 100%;
 }
 
 @media (max-width: 480px) {

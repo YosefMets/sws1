@@ -34,40 +34,13 @@ const close = () => {
   emit('close');
 }
 
-const { isAndroid } = useDevice()
-
 // Блокировка скролла
 watch(() => props.show, (isOpen) => {
-  if (isAndroid.value && isOpen) {
+  if (isOpen) {
     document.body.style.overflow = 'hidden'
     // НЕ делаем pushState
   } else {
     document.body.style.overflow = ''
-  }
-})
-
-const handlePopState = (event) => {
-  if (props.show) {
-    event.preventDefault() // Предотвращаем навигацию
-    emit('close')
-  }
-}
-
-onMounted(() => {
-  if (isAndroid.value) {
-    window.addEventListener('popstate', handlePopState)
-    // Запрещаем навигацию при открытом модале
-    window.history.pushState(null, '', window.location.href)
-  }
-})
-
-onBeforeUnmount(() => {
-  document.body.style.overflow = ''
-  if (isAndroid.value) {
-    window.removeEventListener('popstate', handlePopState)
-    if (window.cordova || window.Capacitor) {
-      document.removeEventListener('backbutton', handleBack, false)
-    }
   }
 })
 </script>

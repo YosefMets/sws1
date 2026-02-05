@@ -14,9 +14,6 @@ const props = defineProps({
 });
 
 const slots = useSlots();
-const header = ref(!!slots.header);
-const title = ref(!!slots.title);
-const footer = ref(!!slots.footer);
 </script>
 
 <template>
@@ -32,13 +29,20 @@ const footer = ref(!!slots.footer);
     <div class="modal-container scroll">
 
       <div>
-        <h2 v-if="header" :class="['mdl-ttl', { 'mdl-ttl-x': x }]">
+        <h2 v-if="slots.header" :class="['mdl-ttl', { 'mdl-ttl-x': x }]">
           <slot name="header" />
         </h2>
         <slot />
       </div>
 
-      <div v-if="footer" class="mdx-footer"><slot name="footer" /></div>
+      <template v-if="slots.footer" class="mdx-footer-wr">
+        <div class="mdx-footer-space">
+          <slot name="footer" />
+        </div>
+        <div class="mdx-footer">
+          <slot name="footer" />
+        </div>
+      </template>
 
       <div v-if="x" class="mdl-x-wr">
         <span class="mdl-x" @click="emit('close')">X</span>
@@ -56,7 +60,7 @@ const footer = ref(!!slots.footer);
   /*background-color: #fff;*/
   padding: 3rem;
   overflow: auto;
-  display: grid;
+  /*display: grid;*/
   grid-template-rows: 1fr;
   grid-auto-rows: auto;
   grid-auto-flow: row;
@@ -115,23 +119,18 @@ const footer = ref(!!slots.footer);
   z-index: 5;
 }
 
-.mdx-footer {
-  position: sticky;
-  bottom: 0;
-  z-index: 50;
-  /*padding-top: 2rem;*/
-  background-color: var(--bg);
-  margin-bottom: -3em;
-  height: var(--navbar-h);
+.mdx-footer-space {
+  visibility: hidden;
 }
-.mdx-footer:after {
-  /*content: '';*/
-  position: absolute;
+.mdx-footer {
+  position: fixed;
   left: 0;
   right: 0;
-  top: 100%;
-  height: 3rem;
-  background-color: var(--bg);
+  bottom: 3rem;
+  z-index: 50;
+  /*padding-top: 2rem;*/
+  background-color: inherit;
+  /*margin-bottom: -3em;*/
 }
 
 @media (max-width: 480px) {
@@ -139,7 +138,10 @@ const footer = ref(!!slots.footer);
     padding: 1.5rem;
   }
   .mdx-footer {
-    padding: 1.5rem 0;
+    /*padding: 0 1.5rem;*/
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
     /*margin-bottom: -1.5rem;*/
   }
   .mdx-footer:after { height: 1.5rem; }

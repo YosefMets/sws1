@@ -26,11 +26,9 @@ watch( size, (n) => { emit('update:modelValue', n) })
 
   <div class="sizes-control">
     <span class="sizes-title">{{ $t('size') }}</span>
-    <ul class="sizes-list">
-      <li v-for="sz in sizes" :class="['size-item', { curr: sz === size }]" @click="size = sz">
-        {{ sz[regionCode] }}
-      </li>
-    </ul>
+    <div v-for="sz in sizes" :class="['size-item', { curr: sz === size }]" @click="size = sz">
+      {{ sz[regionCode] }}
+    </div>
   </div>
 
 </template>
@@ -39,7 +37,10 @@ watch( size, (n) => { emit('update:modelValue', n) })
 .sizes-control {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
+  grid-auto-columns: auto;
+  grid-auto-flow: column;
+  gap: .5em;
   height: var(--cntl-h);
   background-color: #fff;
   border-radius: var(--br);
